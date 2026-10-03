@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { background: #f5f3ee; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body { margin: 0; background: #f5f3ee; color: #171717; font-family: Inter, system-ui, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::selection { background: #ff6b3d; color: #fff; }
+a:focus-visible, button:focus-visible { outline: 1px solid #ff6b3d; outline-offset: 4px; }
+
+@layer components {
+  .h1 { @apply font-serif; font-size: clamp(3.4rem, 8.4vw, 8.5rem); line-height: .96; letter-spacing: -.025em; }
+  .h2 { @apply font-serif; font-size: clamp(2.8rem, 6.2vw, 6.2rem); line-height: .98; letter-spacing: -.02em; }
+  .label { @apply font-sans text-[11px] uppercase tracking-[.22em] text-mute; }
+  .mask { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+  .pill { @apply rounded-full border border-line bg-paper/80 backdrop-blur-md shadow-[0_8px_30px_-12px_rgba(23,23,23,.18)]; }
+  .btn { @apply inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 font-sans text-[12px] uppercase tracking-[.2em] text-paper shadow-[0_14px_30px_-12px_rgba(23,23,23,.5)] transition-transform duration-500 hover:-translate-y-0.5; }
+  .btn .ar { display: inline-block; transition: transform .5s; }
+  .btn:hover .ar { transform: translateX(4px); }
+  .glow { background: radial-gradient(55% 45% at 50% 0%, rgba(255,107,61,.13), rgba(255,107,61,0) 70%); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+@layer components {
+  .field { @apply w-full rounded-full border border-line bg-white/70 px-6 py-4 font-sans text-sm outline-none transition-colors placeholder:text-mute focus:border-ink/40; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .8s ease both; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { .rise { animation: none; } html { scroll-behavior: auto; } }
